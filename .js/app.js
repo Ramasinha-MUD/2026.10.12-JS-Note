@@ -92,11 +92,24 @@ function btnSearchCustomrOnAction() {
 }
 
 function btnDeleteCustomrOnAction() {
-    alert("delete customer");
+    //alert("delete customer");
+
+    let id = document.getElementById("txtid"). value
+
+    let index = customerList.findIndex(c => c.id === id);
+
+    if(index !== -1){
+        customerList.splice(index, 1);
+        localStorage.setItem("customerList", JSON.stringify(customerList));
+        btnLoadTableOnAction();
+    }else{
+        alert("Customer Not Found");
+    }
 }
 
 function btnUpdateCustomrOnAction() {
-    alert("update customer");
+    //alert("update customer");
+    
 }
 
 function btnClearStorageOnAction() {
