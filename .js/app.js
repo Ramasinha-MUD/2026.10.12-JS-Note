@@ -56,14 +56,27 @@ localStorage.setItem("customer", stringCustomer);
 
 // ---------------------- CRUD operations in localStorage--------------------
 
-let customerList = JSON.parse(localStorage.getItem(customerList)) || [];
+let customerList = JSON.parse(localStorage.getItem("customerList")) || [];
 
 function btnaddCustomrOnAction() {
-    alert("add customer");
+   // alert("add customer");
+
+   let customer = {
+        id: document.getElementById("txtid"). value,
+        name: document.getElementById("txtname"). value,
+        age: document.getElementById("txtage"). value,
+        address: document.getElementById("txtaddress"). value,
+   };
+
+   //console.log(customer);
+   customerList.push(customer);
+   //console.log(customerList);
+   localStorage.setItem("customerList", JSON.stringify(customerList));
+   btnLoadTableOnAction();
 }
 
 function btnSearchCustomrOnAction() {
-    alert("search customer");
+    //alert("search customer");
 }
 
 function btnDeleteCustomrOnAction() {
@@ -96,3 +109,5 @@ function btnLoadTableOnAction() {
     });
     document.getElementById("tblCustomer").innerHTML = tblbdy;
 }
+
+btnLoadTableOnAction();
