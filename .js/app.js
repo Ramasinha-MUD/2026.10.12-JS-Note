@@ -77,6 +77,18 @@ function btnaddCustomrOnAction() {
 
 function btnSearchCustomrOnAction() {
     //alert("search customer");
+
+    let id = document.getElementById("txtid"). value
+
+    let customer = customerList.find(c => c.id === id);
+
+    if(customer){
+        document.getElementById("txtname"). value = customer.name;
+        document.getElementById("txtage"). value = customer.age;
+        document.getElementById("txtaddress"). value = customer.address;
+    }else{
+        alert("Customer Not Found");
+    }
 }
 
 function btnDeleteCustomrOnAction() {
